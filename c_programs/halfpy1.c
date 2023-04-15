@@ -2,18 +2,25 @@
 
 int main()
 /*prints half star pyramid with the flat surface on the right
+ *
  */
-{
-	int i, k, j, n;
-	printf("Enter number of stars in the pyrmid: ");
-	scanf("%d", &n);
-	for(i=1; i<=n; i++)
+ {
+	int rows, columns, i, space;
+       do
+       {	       
+	printf("Enter number of rows in the pyrmid: ");
+	scanf("%d", &rows);
+       }while(rows<0 || rows>=50);//limits the number of rows to print to >0 and <50
+	for(i = 0; i< rows; i++)
 	{
-	for(j=n; j>=n; j--)
-		printf("*");
-	for(k=1; k<=i; k++)
-		printf(" ");
+		for(space=0; space <(rows-i-1); space++)//prints spaces before asterik
+		{
+			printf(" ");
+		}
+		for(columns=0; columns <= i; columns++)
+		{
+			printf("*");
+		}
 		printf("\n");
 	}
-	return 0;
 }
