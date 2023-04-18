@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	unsigned long long n, sum = 0, j, rem, newSum;
+	unsigned long long n, sum = 0, j, rem, k, newSum = 0, checksum;//k=individual alternate numbers from last.
 	//prompt for input
 	printf("Number: ");
 	scanf("%llu", &n);
@@ -10,27 +10,32 @@ int main(void)
 	//calculate checksum. Start with the ones to be multiplied by 2.
 	while (n != 0)
 	{
-		if(n < 100)//to get the j 
+		if(n < 100)//to get j where no remainder is needed since n<100
 		{
 			j = n / 10;
 			n = n / 10;
+			k = n+1;
 		}
+		
 		else//to get j using the the remainder
 		{
 			rem = n % 100;
 			j = rem / 10;
+			k = rem % 10;
 			n = n/100;
 		}
-			
-		if (j >= 5)//multiply each digit by 2
+		//multiply j by 2 and add the products. Where j
+		if (j < 5)
 		{
-			newSum = (sum + ((j * 2) % 10) + ((j * 2) / 10));
+		j = j * 2;
 		}
 		else
 		{
-			newSum = (sum + j) * 2;
+			j = ((j*2) % 10) + ((j * 2) / 10);
 		}
-		sum = sum + j;// to calculate sum of the digits starting with second from last
+			
+		sum = sum + j;// to calculate sum of the sum of alternate digits(j) multiplied by 2 from the second to last.
+		newSum = newSum + k;
 	}
 	printf("Number: %llu\n", newSum);// print the sum of the digits multiplied by 2.
 }
