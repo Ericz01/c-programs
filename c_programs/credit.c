@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	unsigned long long n, sum = 0, j, rem, k, newSum = 0, checksum;//k=individual alternate numbers from last.
+	unsigned long long n, sum = 0, j, rem, k, newSum = 0, checkSum, first, first2;//k=individual alternate numbers from last.
 	//prompt for input
 	printf("Number: ");
 	scanf("%llu", &n);
@@ -13,8 +13,10 @@ int main(void)
 		if(n < 100)//to get j where no remainder is needed since n<100
 		{
 			j = n / 10;
-			n = n / 10;
-			k = n+1;
+			k = n % 10;
+			first = j;
+			first2 = n;
+			n = 0;
 		}
 		
 		else//to get j using the the remainder
@@ -37,5 +39,16 @@ int main(void)
 		sum = sum + j;// to calculate sum of the sum of alternate digits(j) multiplied by 2 from the second to last.
 		newSum = newSum + k;
 	}
-	printf("Number: %llu\n", newSum);// print the sum of the digits multiplied by 2.
+	checkSum = sum + newSum;
+	if ((checkSum % 10) == 0)
+	{
+		if (first == 4);
+		{
+			printf("Number: %llu\nVALID\nVISA\n", checkSum);// print the sum of the digits multiplied by 2.
+		}
+	}
+	else
+	{
+		printf("Number: %llu\nINVALID\n", checkSum);
+	}
 }
