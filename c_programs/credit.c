@@ -51,29 +51,28 @@ int main(void)
 		sum = sum + j;// to calculate sum of the sum of alternate digits(j) multiplied by 2 from the second to last.
 		newSum = newSum + k;
 		checkSum = sum + newSum;
-		if (checkSum % 10 == 0)
-		{
-			if (first == 4)//Visa
-			{
-				printf("Number: %llu\nVALID\nVISA\n", first);// print the sum of the digits multiplied by 2.
-			}
-			else if (first2 == 34 || first2 == 37)//AMEX
-			{
-				printf("Number: %llu\nVALID\nAMEX\n", first2);
-			}
-			else if (first2 == 51 || first2 == 52 || first2 == 53 || first2 == 54 || first2 == 55)//MASTERCARD
-			{
-				printf("Number: %llu\nVALID\nMASTERCARD\n", first2);
-			}
-			else
-			{
-				printf("%llu\nINVALID\n", first2);//INVALID1
-			}
-//		}
-//		else
-//		{
-//			printf ("INVALID\n");//invalid2
-//		}
 	}
+	if (checkSum % 10 == 0)
+	{
+		if (first == 4)//Visa
+		{
+			printf("Number: %llu\nVALID\nVISA\n", first);// print the sum of the digits multiplied by 2.
+		}
+		else if (first2 == 34 || first2 == 37)//AMEX
+		{
+			printf("Number: %llu\nVALID\nAMEX\n", first2);
+		}
+		else if (first2 == 51 || first2 == 52 || first2 == 53 || first2 == 54 || first2 == 55)//MASTERCARD
+		{
+			printf("Number: %llu\nVALID\nMASTERCARD\n", first2);
+		}
+		else
+		{
+			printf("%llu\nINVALID\n", first2);//INVALID1
+		}
+	}
+	else
+	{
+		printf ("INVALID\n");//invalid2
 	}
 }
