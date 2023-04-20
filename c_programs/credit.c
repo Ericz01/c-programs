@@ -2,11 +2,12 @@
 
 int main(void)
 {
-	unsigned long long n;
-       	int sum = 0, j, rem, k, newSum = 0, checkSum, first, third, first2;//k=individual alternate numbers from last.
+	unsigned long long n, i;
+       	int sum = 0, j, rem, k, newSum = 0, checkSum, first, third, first2, count = 0;//k=individual alternate numbers from last.
 	//prompt for input
 	printf("Number: ");
 	scanf("%llu", &n);
+	i = n;
 	
 	//calculate checksum. Start with the ones to be multiplied by 2.
 	while (n != 0)
@@ -53,11 +54,24 @@ int main(void)
 		newSum = newSum + k;
 		checkSum = sum + newSum;
 	}
+	while (i != 0)
+	{
+		i = i / 10;
+		count++;
+	}
+	printf("Count: %d\n", count);
 	if (checkSum % 10 == 0)
 	{
-		if (first == 4)//Visa
+		if (first == 4 || first2 / 10 == 4)//Visa
 		{
-			printf("Number: %d\nVALID\nVISA\n", first);// print the sum of the digits multiplied by 2.
+			if(count > 12)
+			{
+				printf("Number: %d\nVALID\nVISA\n", first);// print the sum of the digits multiplied by 2.
+			}
+			else
+			{
+				printf("INVALID\n");//invalid3
+			}
 		}
 		else if (first2 == 34 || first2 == 37)//AMEX
 		{
