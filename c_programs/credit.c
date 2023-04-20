@@ -2,7 +2,8 @@
 
 int main(void)
 {
-	unsigned long long n, sum = 0, j, rem, k, newSum = 0, checkSum, first, third, first2;//k=individual alternate numbers from last.
+	unsigned long long n;
+       	int sum = 0, j, rem, k, newSum = 0, checkSum, first, third, first2;//k=individual alternate numbers from last.
 	//prompt for input
 	printf("Number: ");
 	scanf("%llu", &n);
@@ -56,19 +57,19 @@ int main(void)
 	{
 		if (first == 4)//Visa
 		{
-			printf("Number: %llu\nVALID\nVISA\n", first);// print the sum of the digits multiplied by 2.
+			printf("Number: %d\nVALID\nVISA\n", first);// print the sum of the digits multiplied by 2.
 		}
 		else if (first2 == 34 || first2 == 37)//AMEX
 		{
-			printf("Number: %llu\nVALID\nAMEX\n", first2);
+			printf("Number: %d\nVALID\nAMEX\n", first2);
 		}
 		else if (first2 == 51 || first2 == 52 || first2 == 53 || first2 == 54 || first2 == 55)//MASTERCARD
 		{
-			printf("Number: %llu\nVALID\nMASTERCARD\n", first2);
+			printf("Number: %d\nVALID\nMASTERCARD\n", first2);
 		}
 		else
 		{
-			printf("%llu\nINVALID\n", first2);//INVALID1
+			printf("%d\nINVALID\n", first2);//INVALID1
 		}
 	}
 	else
