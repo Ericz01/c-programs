@@ -3,8 +3,11 @@
 int main(void)
 {
     int space, row, column, i, n;
-    printf("Enter the height: ");
-    scanf("%d", &row);
+    do
+    {
+    	printf("Enter the height: ");
+   	 scanf("%d", &row);
+    }while (row > 60);
 
     for (i = 0; i < row; i++)
     {

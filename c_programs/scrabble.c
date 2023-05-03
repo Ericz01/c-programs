@@ -18,6 +18,8 @@ int main(void)
 	int score1 = compute_score(word1);
 	int score2 = compute_score(word2);
 	//print the winner
+	printf("Player1: %d\n", score1);
+	printf("player2: %d\n", score2);
 	if (score1 > score2)
 	{
 		printf("Player 1 wins!\n");
