@@ -9,16 +9,16 @@ int main(int argc, char argv)
 	for (int i = 0; i < 5; i++)
 	{
 		n = input[i];
-		while (n)
+		while (input[i])
 		{
-			rem = n % 2;
-			n = n / 2;
+			rem = input[i] % 2;
+			input[i] = input[i] / 2;
 			binary = binary + (rem * counter);//to get the binary number
 			counter = counter * 10;//*10 to increment the number and add a 0 in each iteration
 //			printf("%d", rem);
 
 		}
-		printf("%d\t", n);
+		printf("%d\t", input[i]);
 		printf("\n");
 		printf("%08d\n", binary);
 		n++;
@@ -28,5 +28,8 @@ int main(int argc, char argv)
 
 int input(int input[])
 {
-
-}
+//	for(int i = 0; i > 5; i++)
+//	{
+//		n = input[i];
+//	}
+//}
