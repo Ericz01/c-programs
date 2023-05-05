@@ -15,21 +15,7 @@ int main(int argc, char argv)
 			input[i] = input[i] / 2;
 			binary = binary + (rem * counter);//to get the binary number
 			counter = counter * 10;//*10 to increment the number and add a 0 in each iteration
-//			printf("%d", rem);
-
+			printf("%d", rem);
 		}
-		printf("%d\t", input[i]);
-		printf("\n");
-		printf("%08d\n", binary);
-		n++;
 	}
-	printf("\n");
 }
-
-int input(int input[])
-{
-//	for(int i = 0; i > 5; i++)
-//	{
-//		n = input[i];
-//	}
-//}
