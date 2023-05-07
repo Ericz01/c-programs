@@ -1,56 +1,77 @@
-#include "cs50.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
 
-char key[26];
-char CIPHER[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 int main(int argc, char *argv[])
 {
-
-	//DO: get key
-	char *key = argv[1];	string plaintext = get_string("Plaintext: ");
-	int string = strlen(plaintext);
-	for (int i = 0; i < 26;  i++)
+//GOAL: substitute elements of a string provided with the elements of the key
+	//check the user gives one CL arg if not, print "usage: ./substitution"
+	if (argc != 2)
 	{
-		key[i] = CIPHER[i];
-		printf("%c ", key[i]);
+		printf("Usage: ./substitution\n");
+		return 1;
 	}
-	printf("\n");
-	for(int j = 0; j < string; j++)
+	//Key consists of alphabets only
+	char *key = argv[1];
+	for (int i = 0; i < strlen(key); i++)
 	{
-		printf("%c ", plaintext[j]);
+		if (!isalpha(key[i]))
+		{
+			printf("Usage: ./substitution\n");
+			return 1;
+		}
 	}
-	plaintext[j] = key[i];
-	printf("\n");
-	printf("%c ", plaintext[j]);
+	//key is 26 characters
+	if (strlen(key) != 26)
+	{
+		printf("Key must be 26 characters long\n");
+		return 1;
+	}
+	//no repeated alphabets
+	for (int i = 0; i < strlen(key); i++)
+	{
+		for (int j = (i + 1); j < strlen(key); j++)
+		{
+			if (toupper(key[i]) == toupper(key[j]))
+			{
+				printf("Usage: ./substitution\n");
+				return 1;
+			}
+		}
+	}
+	//prompt for plaintext
+	char text[30];
+	printf("Text: ");
+	scanf("%[^\n]%*c", text);
 
-//	string plaintext = get_string("Plaintext: ");
-//	int string = strlen(plaintext);
-//	for  (int j = 0; j < string; j++)
-//	{
-//		string[j] = key[i];
-//		printf("%c", string[i]);
-//	}
+	//convert elements of the key to uppercase 
+	for (int i = 0; i < strlen(key); i++)
+	{
+		if (islower(key[i]))
+		{
+			key[i] = key[i] - 32;
+		}
+	}
 	
+	//print the ciphertext
+	printf("Ciphertext: ");
+	for (int i = 0; i < strlen(text); i++)
+	{
+		if (isupper(text[i]))
+		{
+			int letter = text[i] - 65;
+			printf("%c", key[letter]);
+		}
+		else if (islower(text[i]))
+		{
+			int letter = text[i] - 97;
+			printf("%c", key[letter] + 32);
+		}
+		else
+		{
+			printf("%c", text[i]);
+		}
+	}
+	printf("\n");
 
-	//DO: validate key
-	//if (key != 26)
-	//{
-	//	printf("key length must be 26\n")
-//	}
-//	else
-//	{
-//		//DO: get plaintext
-//		string plaintext = get_string("Plaintext: ");
-		//DO: Encipher
-
-		//DO: print ciphertext
-//		printf("");
-//	}
 }
-//void substitution(char cipher[], char plaintext, char ciphertext)
-//{
-
-	
-//}
