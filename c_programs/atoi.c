@@ -8,7 +8,7 @@ int convert(string input);
 int main(void)
 {
 	string input = get_string("Positive int: ");
-	for (int i = 0; n = strlen(input); i++)
+	for (int i = 0; i < strlen(input); i++)
 	{
 		if (!isdigit(input[i]))
 		{
@@ -24,8 +24,14 @@ int main(void)
 int convert(string input)
 {
 	int length = strlen(input);
-	for (int i = 0; i < length; i++)
+	//base case. If only one digit
+	if (length == 1)
 	{
-		
+		return input[0] - '0';
 	}
+	char lastDigit = input[length - 1];
+	int convertedDigit = lastDigit - '0';
+	input[length - 1] = '\0';
+	//return the value plus 10* the int value of the snhortened string
+	return convertedDigit + 10 * convert(input);
 }
