@@ -71,14 +71,41 @@ int main(void)
     printf("Your total cost is: $%.2f\n", total);
 }
 
-// Add at least the first for items to the menu array
+// Add at least the first four items to the menu array
 void add_items(void)
 {
+	menu[0].item = "Bugger";
+	menu[0].price = 9.5;
+	menu[1].item = "Vegan burger";
+	menu[1].price = 11.00;
+	menu[2].item = "Hot Dog";
+	menu[2].price = 5.00;
+	menu[3].item = "Cheese Dog";
+	menu[3].price = 7.00;
+	menu[4].item = "Fries";
+	menu[4].price = 5.00;
+	menu[5].item = "Cheese Fries";
+	menu[5].price = 6.00;
+	menu[6].item = "Cold pressed juice";
+	menu[6].price = 7.00;
+	menu[7].item = "Cold brew";
+	menu[7].price = 3.00;
+	menu[8].item = "Water";
+	menu[8].price = 2.00;
+	menu[9].item = "Soda";
+	menu[9].price = 2.00;
     return;
 }
 
 // Search through the menu array to find an item's cost
 float get_cost(string item)
 {
-    return 0.0;
+	for (int i = 0; i < NUM_ITEMS; i++)
+	{
+		if (strcasecmp(item, menu[i].item) == 0)//compares the items input by user with the items in the array menu[].
+		{
+			return menu[i].price;
+		}
+	}
+	return 0.0;
 }
