@@ -1,9 +1,12 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 void update(int *a,int *b) 
 {
-   *a = (int *pa + int *pb);
-   *b = (int *pa - int *pb);   
+    int add, sub;
+    add = *a + *b;
+    sub = abs(*a - *b);
+    *a = add;
+    *b = sub;
 }
 
 int main()
